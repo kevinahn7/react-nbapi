@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import fetchTeamId from './../actions'
+import { fetchTeamId } from './../actions'
 
 function RosterSearch({ dispatch }) {
   let teamName;
   return(
     <div>
       <h3>Select a Team to View Their Roster</h3>
-      <form>
+      <form onSubmit={e => {
+          e.preventDefault();
+          dispatch(fetchTeamId(teamName.value))
+        }}>
         <select ref={node =>{ teamName = node; }}>
           <option value='Atlanta Hawks'>Atlanta Hawks</option>
           <option value='Boston Celtics'>Boston Celtics</option>
