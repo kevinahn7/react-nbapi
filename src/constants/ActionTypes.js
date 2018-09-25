@@ -1,2 +1,2 @@
-export const REQUEST_TEAM = 'REQUEST_TEAM';
+export const REQUEST_TEAM_ID = 'REQUEST_TEAM_ID';
 export const RECEIVE_ROSTER = 'RECEIVE_ROSTER';
