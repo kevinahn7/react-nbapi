@@ -1,7 +1,1 @@
-export const initialState = {
-  currentTeam: {
-    teamName: '',
-    teamId: '',
-    roster: []
-  }
-};
+export const initialState = {};

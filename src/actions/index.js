@@ -2,7 +2,7 @@ import * as types from './../constants/ActionTypes';
 
 export function fetchTeamId(teamName) {
   return function (dispatch) {
-    // dispatch(requestTeamId(teamName))
+    dispatch(requestTeamId(teamName))
     return fetch('https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=' + teamName)
       .then(
         response => response.json(),
@@ -10,7 +10,6 @@ export function fetchTeamId(teamName) {
       ).then(function(json) {
         let teamId = json.teams[0].idTeam;
         fetchRoster(teamId, dispatch);
-        // dispatch(receieveRoster(teamId));
       })
   }
 }
@@ -37,4 +36,5 @@ export function fetchRoster(teamId, dispatch) {
         image: player.strThumb
       }));
     })
+    dispatch(receieveRoster(roster));
 }
