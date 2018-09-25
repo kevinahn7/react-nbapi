@@ -19,9 +19,9 @@ export const requestTeamId = (teamName) => ({
   teamName
 });
 
-export const receieveRoster = (teamId) => ({
+export const receieveRoster = (roster) => ({
   type: types.RECEIVE_ROSTER,
-  teamid
+  roster
 })
 
 export function fetchRoster(teamId, dispatch) {
@@ -35,6 +35,7 @@ export function fetchRoster(teamId, dispatch) {
         position: player.strPosition,
         image: player.strThumb
       }));
+      console.log(roster);
+      dispatch(receieveRoster(roster));
     })
-    dispatch(receieveRoster(roster));
 }
